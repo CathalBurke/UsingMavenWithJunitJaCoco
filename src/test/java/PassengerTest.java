@@ -45,4 +45,18 @@ public class PassengerTest {
         });
         assertEquals("Last name must be at least 3 characters long", ex.getMessage());
     }
+    @Test
+    void testNullFirstName() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new Passenger("Mr", null, "Smith");
+        });
+        assertEquals("First name must be at least 3 characters long", ex.getMessage());
+    }
+    @Test
+    void testNullLastName() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new Passenger("Ms", "Jane", null);
+        });
+        assertEquals("Last name must be at least 3 characters long", ex.getMessage());
+    }
 }
